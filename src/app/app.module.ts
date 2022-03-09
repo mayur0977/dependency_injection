@@ -13,7 +13,7 @@ import { LogService } from './core/services/log/Log.service';
 
 export function customLogServiceFactory() {
   const service = new CustomLogService();
-  service.setPrefix('(factory demo custom)');
+  service.setPrefix('(app module)');
   return service;
 }
 @NgModule({
@@ -34,8 +34,8 @@ export function customLogServiceFactory() {
       useClass: Interceptor,
       multi: true,
     },
-    { provide: REST_API_URL, useValue: 'IT WORKS', multi: false },
-    // { provide: REST_API_URL, useValue: 'IT WORKS too', multi: false },
+    { provide: REST_API_URL, useValue:{ id: 1, name:'comsumer'}, multi: true },
+    { provide: REST_API_URL, useValue: 'IT WORKS too', multi: true },
     { provide: LogService, useFactory: customLogServiceFactory }
   ],
   bootstrap: [AppComponent],

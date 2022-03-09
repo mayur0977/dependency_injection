@@ -15,10 +15,10 @@ export class AppComponent {
   ) {
     this.dataService.getData().subscribe((data) => {
       console.log('RES', data);
-      // this.logService.info(JSON.stringify(data, null, 4));
+      this.logService.info(JSON.stringify(data, null, 4));
     });
 
-    // this.logService.warning('This is clear warning');
+    this.logService.warning('This is clear warning');
   }
   title = 'dependency-injection';
 }
